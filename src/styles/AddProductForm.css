@@ -1,0 +1,11 @@
+.add-product-form {
+  @apply flex flex-wrap gap-4 items-end bg-white p-4 rounded-lg shadow-md;
+}
+
+.add-product-form > div {
+  @apply flex-1 min-w-[200px] flex flex-col;
+}
+
+.add-product-form button {
+  @apply flex-none px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700;
+}

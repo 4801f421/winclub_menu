@@ -1,0 +1,498 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1b304f;
+            color: #d4af37;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* استایل‌های بنر */
+        .banner {
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+        }
+        
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .banner h1 {
+            color: #d4af37;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+        }
+        
+        .banner .description {
+            color: #e6c875;
+            font-size: 1.4rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* استایل‌های جدید برای منوی اسکرول افقی */
+        .categories-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .categories-scroll {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #d4af37 #2a426b;
+            padding: 15px 10px;
+            gap: 15px;
+            scroll-behavior: smooth;
+            background: rgba(27, 48, 79, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        /* مخفی کردن اسکرولبار در برخی مرورگرها */
+        .categories-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .categories-scroll::-webkit-scrollbar-track {
+            background: #2a426b;
+            border-radius: 10px;
+        }
+        
+        .categories-scroll::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+        
+        .categories-scroll::-webkit-scrollbar-thumb:hover {
+            background: #e6c875;
+        }
+        
+        .category-btn {
+            background-color: #2a426b;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: #d4af37;
+            color: #1b304f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* دکمه‌های اسکرول */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #d4af37;
+            color: #1b304f;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-btn:hover {
+            background: #e6c875;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .scroll-left {
+            right: -25px;
+        }
+        
+        .scroll-right {
+            left: -25px;
+        }
+        
+        /* استایل‌های جدول محصولات */
+        .products-table-container {
+            margin-top: 30px;
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: linear-gradient(145deg, #2a426b, #1b304f);
+        }
+        
+        .products-table th {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 15px;
+            text-align: right;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+        }
+        
+        .products-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            color: #e6c875;
+        }
+        
+        .products-table tr:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .product-image-cell {
+            width: 80px;
+        }
+        
+        .product-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .product-name {
+            font-weight: 600;
+            color: #d4af37;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: #d4af37;
+        }
+        
+        /* استایل‌های پنل مدیریت */
+        .admin-panel {
+            background: rgba(27, 48, 79, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .admin-title {
+            font-size: 1.8rem;
+            color: #d4af37;
+        }
+        
+        .admin-btn {
+            background-color: #d4af37;
+            color: #1b304f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-btn:hover {
+            background-color: #e6c875;
+            transform: translateY(-2px);
+        }
+        
+        .admin-btn.secondary {
+            background-color: #2a426b;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+        }
+        
+        .admin-btn.secondary:hover {
+            background-color: #3a527b;
+        }
+        
+        .admin-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(27, 48, 79, 0.7);
+            color: #e6c875;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+        
+        .products-management {
+            margin-top: 20px;
+        }
+        
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(42, 66, 107, 0.5);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .product-details {
+            flex: 1;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .price-input {
+            width: 120px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(27, 48, 79, 0.7);
+            color: #e6c875;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: #d4af37;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+        
+        .action-btn.delete {
+            color: #ff6b6b;
+        }
+        
+        .action-btn.delete:hover {
+            background: rgba(255, 107, 107, 0.2);
+        }
+        
+        .action-btn.edit {
+            color: #4dabf7;
+        }
+        
+        .action-btn.edit:hover {
+            background: rgba(77, 171, 247, 0.2);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .toggle-admin {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .toggle-admin-btn {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-admin-btn:hover {
+            background: rgba(212, 175, 55, 0.4);
+        }
+        
+        /* استایل‌های مودال ویرایش */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, #2a426b, #1b304f);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: #d4af37;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: #d4af37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        /* استایل برای حالت موبایل */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .banner {
+                height: 200px;
+            }
+            
+            .banner h1 {
+                font-size: 2.2rem;
+            }
+            
+            .banner .description {
+                font-size: 1.1rem;
+            }
+            
+            .scroll-btn {
+                display: none;
+            }
+            
+            .categories-scroll {
+                padding-bottom: 20px;
+            }
+            
+            .products-table th, .products-table td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .product-image-cell {
+                width: 60px;
+            }
+            
+            .product-image {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .product-item {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            
+            .product-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }

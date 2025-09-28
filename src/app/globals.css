@@ -1,0 +1,362 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1b304f;
+            color: #d4af37;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* استایل‌های جدید برای بنر */
+        .banner {
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+        }
+        
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .banner h1 {
+            color: #d4af37;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+        }
+        
+        .banner .description {
+            color: #e6c875;
+            font-size: 1.4rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* استایل‌های جدید برای منوی اسکرول افقی */
+        .categories-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .categories-scroll {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #d4af37 #2a426b;
+            padding: 15px 10px;
+            gap: 15px;
+            scroll-behavior: smooth;
+            background: rgba(27, 48, 79, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        /* مخفی کردن اسکرولبار در برخی مرورگرها */
+        .categories-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .categories-scroll::-webkit-scrollbar-track {
+            background: #2a426b;
+            border-radius: 10px;
+        }
+        
+        .categories-scroll::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+        
+        .categories-scroll::-webkit-scrollbar-thumb:hover {
+            background: #e6c875;
+        }
+        
+        .category-btn {
+            background-color: #2a426b;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: #d4af37;
+            color: #1b304f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* دکمه‌های اسکرول */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #d4af37;
+            color: #1b304f;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-btn:hover {
+            background: #e6c875;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .scroll-left {
+            right: -25px;
+        }
+        
+        .scroll-right {
+            left: -25px;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: linear-gradient(145deg, #2a426b, #1b304f);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #e6c875, #d4af37);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-name {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-description {
+            color: #e6c875;
+            margin-bottom: 18px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 20px;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        /* استایل‌های آکوردیون */
+        .accordion {
+            margin-top: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(27, 48, 79, 0.5);
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .accordion-header {
+            background-color: rgba(42, 66, 107, 0.7);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            color: #d4af37;
+        }
+        
+        .accordion-header:hover {
+            background-color: rgba(42, 66, 107, 0.9);
+        }
+        
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .accordion-header.active::after {
+            content: '-';
+            transform: rotate(0deg);
+        }
+        
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: rgba(27, 48, 79, 0.3);
+        }
+        
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 250px;
+        }
+        
+        .accordion-content p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #e6c875;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .accordion-content strong {
+            color: #d4af37;
+            min-width: 120px;
+        }
+        
+        /* استایل برای حالت موبایل */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .banner {
+                height: 200px;
+            }
+            
+            .banner h1 {
+                font-size: 2.2rem;
+            }
+            
+            .banner .description {
+                font-size: 1.1rem;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            .scroll-btn {
+                display: none;
+            }
+            
+            .categories-scroll {
+                padding-bottom: 20px;
+            }
+            
+            .product-info {
+                padding: 20px;
+            }
+        }
+        
+        /* افکت نور برای عناصر مهم */
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+
+        .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+}
