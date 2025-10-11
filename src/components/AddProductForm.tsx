@@ -89,15 +89,24 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
         <option value="">انتخاب کنید</option>
         <option value="espresso">اسپرسو بار</option>
         <option value="latte">لاته بار</option>
-        <option value="mocktel">موکتل بار</option>
+        <option value="Brew">دمی بار</option>
         <option value="chocolate">چاکلت بار</option>
         <option value="Herbal">دمنوش</option>
-        <option value="IceTea">آیس تی</option>
-        <option value="Macha">ماچا</option>
-        <option value="espronia">اسپرونیا</option>
+        <option value="IceTea">جلبک بار</option>
         <option value="Shake">شیک</option>
-        <option value="smoothie">اسموتی</option>
-        <option value="Bear">آبجو</option>
+        <option value="smoothie">اسموتی بار</option>
+        <option value="mocktel">موکتل</option>
+        <option value="Bear">Beer</option>
+        <option value="Cake">کیک و دسر</option>
+        <option value="protein">پروتئین بار</option>
+
+        <option value="Appetizer">پیش غذا</option>
+        <option value="Salad">سالاد</option>
+        <option value="Main">غذای اصلی</option>
+        <option value="pizza">پیتزا</option>
+        <option value="burger">برگر</option>
+        <option value="pasta">پاستا</option>
+        <option value="sandwich">ساندویچ و پنینی</option>
       </select>
     </div>
 

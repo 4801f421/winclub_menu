@@ -25,22 +25,31 @@ export default function DashboardClient({ initialProducts }: DashboardClientProp
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
-  const categories = [  "all", "espresso", "latte", "mocktel", "chocolate", "Herbal", "IceTea"
-  ,"Macha","espronia","Shake","smoothie","Bear"];
+  const categories = [  "all", "espresso", "latte", "Brew", "chocolate", "Herbal", "IceTea"
+  ,"Shake","smoothie","mocktel","Bear","Cake","protein",
+  "Appetizer","Salad","Main","pizza","burger","pasta","sandwich"];
   const getCategoryLabel = (cat: string) => {
     const labels: Record<string, string> = {
-  all: "همه محصولات",
-        espresso: "اسپرسو بار",
+ all: "همه محصولات",
+  espresso: "اسپرسو بار",
   latte: "لاته بار",
-  mocktel: "موکتل بار",
+  Brew: "دمی بار",
   chocolate: "چاکلت بار",
   Herbal: "دمنوش",
-  IceTea: "آیس تی",
-  Macha : "ماچا",
-  espronia : "اسپرونیا",
+  IceTea: "جلبک بار",
   Shake : "شیک",
-  smoothie : "اسموتی",
-  Bear : "آبجو"
+  smoothie : "اسموتی بار",
+  mocktel : "موکتل",
+  Bear : "Beer",
+  Cake : "کیک و دسر", 
+  protein : "پروتئین بار",
+  Appetizer : "پیش غذا",
+  Salad : "سالاد",
+  Main : "غذای اصلی",
+  pizza : "پینزا",
+  burger : "برگر",
+  pasta : "پاستا",
+  sandwich : "ساندویچ و پنینی"
     };
     return labels[cat] || cat;
   };
