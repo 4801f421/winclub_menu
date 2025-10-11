@@ -1,13 +1,11 @@
 db = db.getSiblingDB("cafeDB");
 
-// ساخت یوزر
 db.createUser({
   user: "appuser",
   pwd: "apppass",
   roles: [{ role: "readWrite", db: "cafeDB" }]
 });
 
-// وارد کردن محصولات
 db.products.insertMany([
   {
     id: 1,
