@@ -1,19 +1,9 @@
+export const dynamic = "force-dynamic";
+
+
 import clientPromise from "@/lib/mongodb";
 import DashboardClient from "@/components/DashboardClient";
-
-interface Product {
-  _id: string;
-  name: string;
-  category: string;
-  price: string;
-  description: string;
-  image: string;
-    details: {
-    مواد: string;
-    زمان_تهیه: string;
-    کالری: string;
-  };
-}
+import { Product } from "@/types/product";
 
 export default async function DashboardPage() {
   const client = await clientPromise;
@@ -28,7 +18,7 @@ export default async function DashboardPage() {
     price: p.price,
     description: p.description,
     image: p.image,
-    details : p.details
+    details: p.details || { مواد: "", زمان_تهیه: "", کالری: "" },
   }));
 
   return <DashboardClient initialProducts={products} />;

@@ -60,8 +60,7 @@ export default function CategoriesFilter({ products }: { products: Product[] }) 
         getCategoryLabel={(cat) => categoryLabels[cat]}
       />
 
-      {/* 🔹 جدول محصولات */}
-      <ProductTable products={filtered} />
+
     </div>
   );
 }

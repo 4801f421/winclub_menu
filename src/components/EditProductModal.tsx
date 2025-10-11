@@ -1,108 +1,141 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Product } from "@/types/product";
 
-interface Product {
-  _id?: string;
-  id?: number;
-  name: string;
-  category: string;
-  price: string;
-  description: string;
-  image: string;
-  details: {
-    مواد: string;
-    زمان_تهیه: string;
-    کالری: string;
-  };
+interface EditProductModalProps {
+  product: Product;
+  onClose: () => void;
+  onSave: (updated: Product) => void;
 }
 
-interface Props {
-  product: Product | null;           // محصول انتخاب‌شده
-  onClose: () => void;               // بستن مودال
-  onSave: (updated: Product) => void; // ذخیره تغییرات
-}
-
-export default function EditProductModal({ product, onClose, onSave }: Props) {
-  const [form, setForm] = useState<Product | null>(null);
+export default function EditProductModal({ product, onClose, onSave }: EditProductModalProps) {
+  const [form, setForm] = useState<Product>(product);
 
   useEffect(() => {
-    setForm(product);
+    setForm(product); // هر بار product تغییر کرد، فرم را به‌روز کن
   }, [product]);
 
-  if (!form) return null;
-
-  const handleChange = (key: keyof Product, value: string) => {
-    setForm({ ...form, [key]: value });
+  // generic handleChange: اجازه می‌دهد هر field از Product را تغییر دهیم
+  const handleChange = <K extends keyof Product>(field: K, value: Product[K]) => {
+    setForm({ ...form, [field]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSave(form);
-    onClose();
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h3 className="text-lg font-bold mb-4">ویرایش محصول</h3>
-        <form onSubmit={handleSubmit} className="space-y-3">
+    <div className="modal-backdrop">
+      <div className="modal-container">
+        <h2 className="text-lg font-bold mb-4">ویرایش محصول</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
-            className="form-control"
+            type="text"
             value={form.name}
             onChange={(e) => handleChange("name", e.target.value)}
             placeholder="نام محصول"
-          />
-          <input
             className="form-control"
+            required
+          />
+
+          <select
             value={form.category}
             onChange={(e) => handleChange("category", e.target.value)}
-            placeholder="دسته‌بندی"
-          />
-          <input
             className="form-control"
+            required
+          >
+            <option value="espresso">اسپرسو بار</option>
+            <option value="latte">لاته بار</option>
+            <option value="Brew">دمی بار</option>
+            <option value="chocolate">چاکلت بار</option>
+            <option value="Herbal">دمنوش</option>
+            <option value="IceTea">جلبک بار</option>
+            <option value="Shake">شیک</option>
+            <option value="smoothie">اسموتی بار</option>
+            <option value="mocktel">موکتل</option>
+            <option value="Bear">Beer</option>
+            <option value="Cake">کیک و دسر</option>
+            <option value="protein">پروتئین بار</option>
+            <option value="Appetizer">پیش غذا</option>
+            <option value="Salad">سالاد</option>
+            <option value="Main">غذای اصلی</option>
+            <option value="pizza">پیتزا</option>
+            <option value="burger">برگر</option>
+            <option value="pasta">پاستا</option>
+            <option value="sandwich">ساندویچ و پنینی</option>
+          </select>
+
+          <input
+            type="number"
             value={form.price}
             onChange={(e) => handleChange("price", e.target.value)}
             placeholder="قیمت"
-          />
-          <textarea
             className="form-control"
+            required
+          />
+
+          <textarea
             value={form.description}
             onChange={(e) => handleChange("description", e.target.value)}
             placeholder="توضیحات"
-          />
-          <input
             className="form-control"
+            rows={2}
+            required
+          />
+
+          <input
+            type="text"
             value={form.image}
             onChange={(e) => handleChange("image", e.target.value)}
-            placeholder="لینک تصویر"
+            placeholder="آدرس تصویر"
+            className="form-control"
+            required
           />
 
+          {/* جزئیات */}
           <input
-            className="form-control"
-            value={form.details?.مواد || ''}
-            onChange={(e) => handleChange("details", { ...form.details, مواد: e.target.value })}
+            type="text"
+            value={form.details?.مواد || ""}
+            onChange={(e) =>
+              handleChange("details", { ...form.details, مواد: e.target.value })
+            }
             placeholder="مواد"
+            className="form-control"
+            required
           />
           <input
-            className="form-control"
-            value={form.details?.زمان_تهیه || ''}
-            onChange={(e) => handleChange("details", { ...form.details, زمان_تهیه: e.target.value })}
+            type="text"
+            value={form.details?.زمان_تهیه || ""}
+            onChange={(e) =>
+              handleChange("details", { ...form.details, زمان_تهیه: e.target.value })
+            }
             placeholder="زمان تهیه"
+            className="form-control"
+            required
           />
           <input
-            className="form-control"
-            value={form.details?.کالری || ''}
-            onChange={(e) => handleChange("details", { ...form.details, کالری: e.target.value })}
+            type="text"
+            value={form.details?.کالری || ""}
+            onChange={(e) =>
+              handleChange("details", { ...form.details, کالری: e.target.value })
+            }
             placeholder="کالری"
+            className="form-control"
+            required
           />
 
-          <div className="flex justify-end gap-2 pt-2">
-            <button type="button" onClick={onClose} className="admin-btn bg-gray-400">
-              ❌ بستن
+          <div className="flex justify-end gap-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-gray"
+            >
+              لغو
             </button>
-            <button type="submit" className="admin-btn bg-indigo-600">
-              💾 ذخیره
+            <button type="submit" className="btn btn-green">
+              ذخیره
             </button>
           </div>
         </form>

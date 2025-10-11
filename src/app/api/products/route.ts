@@ -1,7 +1,9 @@
+export const dynamic = "force-dynamic";
+
+
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 
-// 🟢 گرفتن همه محصولات
 export async function GET() {
   try {
     const client = await clientPromise;
@@ -14,7 +16,6 @@ export async function GET() {
   }
 }
 
-// 🟠 افزودن محصول جدید
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -23,7 +24,7 @@ export async function POST(req: NextRequest) {
     const result = await db.collection("products").insertOne(data);
 
     return NextResponse.json(
-      { message: "محصول با موفقیت اضافه شد", result },
+      { message: "محصول با موفقیت اضافه شد", id: result.insertedId },
       { status: 201 }
     );
   } catch (error) {
