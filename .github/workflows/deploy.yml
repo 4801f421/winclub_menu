@@ -39,7 +39,15 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # Exit immediately if a command exits with a non-zero status.
+            set -e
+
+            # Define project directory on the server
             PROJECT_DIR="/root/code/winclub-menu"
+
+            # Create project and mongo-init directories
+            mkdir -p $PROJECT_DIR/mongo-init
+            cd $PROJECT_DIR
 
             # Create .env file from GitHub secret
             cat << 'EOF' > .env
