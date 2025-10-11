@@ -39,14 +39,16 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Define project directory on the server
             PROJECT_DIR="/root/code/winclub-menu"
-            mkdir -p $PROJECT_DIR/mongo-init
-            cd $PROJECT_DIR
 
             # Create .env file from GitHub secret
             cat << 'EOF' > .env
             ${{ secrets.DOT_ENV }}
+            EOF
+
+            # Create docker-compose.yml file from GitHub secret
+            cat << 'EOF' > docker-compose.yml
+            ${{ secrets.DOCKER_COMPOSE_PROD }}
             EOF
 
             # Create mongo init script from secret
@@ -56,9 +58,6 @@ jobs:
 
             # Log in to GitHub Container Registry
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-            # Define the image name for docker-compose
-            export WEB_IMAGE=ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
 
             # Pull the latest version of the images from the registry
             docker-compose pull
