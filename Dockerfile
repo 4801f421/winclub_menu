@@ -1,0 +1,31 @@
+# Dockerfile
+
+# Stage 1: Install dependencies
+FROM node:20-slim AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+
+# Stage 2: Build the application
+FROM node:20-slim AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Provide a dummy MONGODB_URI at build time to allow Next.js build to succeed.
+# The real URI will be provided at runtime via the .env file on the server.
+ENV MONGODB_URI="mongodb://dummy:dummy@dummy/dummy"
+
+RUN npm run build
+
+# Stage 3: Production image
+FROM node:20-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+EXPOSE 3000
+CMD ["npm", "start"]

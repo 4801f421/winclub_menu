@@ -1,0 +1,80 @@
+name: Deploy WinClub Menu
+
+on:
+  push:
+    branches: [main] # Trigger deployment on push to the main branch
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Exit immediately if a command exits with a non-zero status.
+            set -e
+
+            # Define project directory on the server
+            PROJECT_DIR="/root/code/winclub-menu"
+
+            # Create project and mongo-init directories
+            mkdir -p $PROJECT_DIR/mongo-init
+            cd $PROJECT_DIR
+
+            # Create .env file from GitHub secret
+            cat << 'EOF' > .env
+            ${{ secrets.DOT_ENV }}
+            EOF
+
+            # Create docker-compose.yml file from GitHub secret
+            cat << 'EOF' > docker-compose.yml
+            ${{ secrets.DOCKER_COMPOSE_PROD }}
+            EOF
+
+            # Create mongo init script from secret
+            cat << 'EOF' > mongo-init/init-products.js
+            ${{ secrets.MONGO_INIT_JS }}
+            EOF
+
+            # Log in to GitHub Container Registry
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+            # Pull the latest version of the images from the registry
+            docker-compose pull
+
+            # Stop and remove old containers
+            docker-compose down
+
+            # Start services with the new image and .env file
+            docker-compose up -d
+
+            # Clean up unused Docker images
+            docker system prune -af
