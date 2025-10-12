@@ -4,7 +4,7 @@ interface CategoriesProps {
   categories: string[];
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
-  getCategoryLabel?: (category: string) => string; // اضافه شد
+  getCategoryLabel?: (category: string) => string; 
 }
 
 export default function Categories({
@@ -22,7 +22,7 @@ export default function Categories({
             className={`category-btn ${selectedCategory === cat ? "active" : ""}`}
             onClick={() => onSelectCategory(cat)}
           >
-            {getCategoryLabel ? getCategoryLabel(cat) : cat} {/* نام فارسی */}
+            {getCategoryLabel ? getCategoryLabel(cat) : cat} {}
           </button>
         ))}
       </nav>
