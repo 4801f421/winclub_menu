@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import "./global.css"; // مسیر CSS عمومی پروژه
+import "./global.css"; 
 
 const ADMIN_USERNAME = "admin";
 const ADMIN_PASSWORD = "123456";
@@ -19,7 +19,7 @@ export default function AdminLoginPage() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      // ورود موفق → هدایت به داشبورد
+ 
       localStorage.setItem("adminLoggedIn", "true");
       router.push("/admin/dashboard");
     } else {
