@@ -17,7 +17,7 @@ interface Product {
 }
 
 interface AddProductFormProps {
-  onSuccess?: () => void; // برای ریفرش کردن لیست بعد از افزودن
+  onSuccess?: () => void; 
 }
 
 export default function AddProductForm({ onSuccess }: AddProductFormProps) {
@@ -42,7 +42,7 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
   const { name, value } = e.target;
 
   if (name.startsWith("details.")) {
-    const key = name.split(".")[1]; // مثل "مواد"
+    const key = name.split(".")[1];
     setForm((prev) => ({
       ...prev,
       details: {
