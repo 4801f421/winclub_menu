@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "./global.css"; // مسیر CSS عمومی پروژه
+import "./global.css"; 
 
 export const metadata = {
   title: "پنل ادمین کافه",
