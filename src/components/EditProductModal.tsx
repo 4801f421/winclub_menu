@@ -68,7 +68,7 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
           </select>
 
           <input
-            type="number"
+            type="text"
             value={form.price}
             onChange={(e) => handleChange("price", e.target.value)}
             placeholder="قیمت"
@@ -103,7 +103,6 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             }
             placeholder="مواد"
             className="form-control"
-            required
           />
           <input
             type="text"
@@ -113,7 +112,6 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             }
             placeholder="زمان تهیه"
             className="form-control"
-            required
           />
           <input
             type="text"
@@ -123,7 +121,6 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             }
             placeholder="کالری"
             className="form-control"
-            required
           />
 
           <div className="flex justify-end gap-2">
