@@ -19,17 +19,25 @@ interface Props {
 export default function ProductList({ products, onEdit, onDelete }: Props) {
   const getCategoryName = (categoryId: string) => {
     const categoryNames: Record<string, string> = {
-  espresso: "اسپرسو بار",
-  latte: "لاته بار",
-  mocktel: "موکتل بار",
-  chocolate: "چاکلت بار",
-  Herbal: "دمنوش",
-  IceTea: "آیس تی",
-  Macha : "ماچا",
-  espronia : "اسپرونیا",
-  Shake : "شیک",
-  smoothie : "اسموتی",
-  Bear : "آبجو"
+      espresso: "اسپرسو بار",
+      latte: "لاته بار",
+      Brew: "دمی بار",
+      chocolate: "چاکلت بار",
+      Herbal: "دمنوش",
+      IceTea: "جلبک بار",
+      Shake: "شیک",
+      smoothie: "اسموتی بار",
+      mocktel: "موکتل",
+      Bear: "Beer",
+      Cake: "کیک و دسر",
+      protein: "پروتئین بار",
+      Appetizer: "پیش غذا",
+      Salad: "سالاد",
+      Main: "غذای اصلی",
+      pizza: "پیتزا",
+      burger: "برگر",
+      pasta: "پاستا",
+      sandwich: "ساندویچ و پنینی"
     };
     return categoryNames[categoryId] || categoryId;
   };
