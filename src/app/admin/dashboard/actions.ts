@@ -3,7 +3,7 @@
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
-// افزودن محصول
+
 export async function addProduct(data: {
   name: string;
   category: string;
@@ -26,7 +26,7 @@ export async function addProduct(data: {
   return { success: true };
 }
 
-// حذف محصول
+
 export async function deleteProduct(id: string) {
   const client = await clientPromise;
   const db = client.db("cafeDB");
@@ -34,7 +34,7 @@ export async function deleteProduct(id: string) {
   return { success: true };
 }
 
-// ویرایش محصول
+
 export async function updateProduct(id: string, updateData: any) {
   const client = await clientPromise;
   const db = client.db("cafeDB");
