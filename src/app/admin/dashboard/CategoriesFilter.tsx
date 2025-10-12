@@ -39,7 +39,7 @@ export default function CategoriesFilter({ products }: { products: Product[] }) 
   Appetizer : "پیش غذا",
   Salad : "سالاد",
   Main : "غذای اصلی",
-  pizza : "پینزا",
+  pizza : "پیتزا",
   burger : "برگر",
   pasta : "پاستا",
   sandwich : "ساندویچ و پنینی"
@@ -52,7 +52,7 @@ export default function CategoriesFilter({ products }: { products: Product[] }) 
 
   return (
     <div className="space-y-4">
-      {/* 🔹 نوار دسته‌بندی */}
+
       <Categories
         categories={categories}
         selectedCategory={selectedCategory}
