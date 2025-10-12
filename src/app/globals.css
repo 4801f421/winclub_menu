@@ -18,7 +18,7 @@
             margin: 0 auto;
         }
         
-        /* استایل‌های جدید برای بنر */
+      
         .banner {
             text-align: center;
             margin-bottom: 30px;
@@ -63,7 +63,7 @@
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
         }
         
-        /* استایل‌های جدید برای منوی اسکرول افقی */
+
         .categories-container {
             position: relative;
             margin-bottom: 40px;
@@ -82,7 +82,7 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
-        /* مخفی کردن اسکرولبار در برخی مرورگرها */
+     
         .categories-scroll::-webkit-scrollbar {
             height: 8px;
         }
@@ -123,7 +123,7 @@
             box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
         }
         
-        /* دکمه‌های اسکرول */
+   
         .scroll-btn {
             position: absolute;
             top: 50%;
@@ -227,7 +227,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
         
-        /* استایل‌های آکوردیون */
+     
         .accordion {
             margin-top: 20px;
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -303,7 +303,7 @@
             min-width: 120px;
         }
         
-        /* استایل برای حالت موبایل */
+       
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -339,7 +339,7 @@
             }
         }
         
-        /* افکت نور برای عناصر مهم */
+
         .gold-glow {
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
         }
