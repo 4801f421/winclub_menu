@@ -1,4 +1,4 @@
-"use client"; // حتماً باید بالای فایل باشه
+"use client"; 
 
 import { useState } from "react";
 import Banner from "@/components/Banner";
@@ -6,7 +6,7 @@ import Categories from "@/components/Categories";
 import Products from "@/components/Products";
 import { Product } from "@/types/product";
 
-// دسته‌بندی‌های ثابت
+
 const categoryList = [  "all", "espresso", "latte", "Brew", "chocolate", "Herbal", "IceTea"
   ,"Shake","smoothie","mocktel","Bear","Cake","protein",
   "Appetizer","Salad","Main","pizza","burger","pasta","sandwich"
@@ -55,7 +55,7 @@ export default function HomeClient({ allProducts }: HomeClientProps) {
   categories={categoryList}
   selectedCategory={selectedCategory}
   onSelectCategory={setSelectedCategory}
-  getCategoryLabel={(cat) => categoryNames[cat]} // <-- اضافه شد
+  getCategoryLabel={(cat) => categoryNames[cat]} 
 />
 
       <Products products={filteredProducts} />
