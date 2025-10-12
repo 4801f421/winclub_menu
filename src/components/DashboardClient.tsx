@@ -117,7 +117,7 @@ export default function DashboardClient({ initialProducts }: DashboardClientProp
           product={safeProduct(editingProduct)}
           onClose={() => setEditingProduct(null)}
           onSave={(updated) => {
-            // wrapper sync برای onSave
+
             (async () => {
               await handleEdit(safeProduct(updated as Product));
             })();
