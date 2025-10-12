@@ -9,6 +9,11 @@ interface Product {
   price: string;
   description: string;
   image: string;
+  details?: {
+    مواد?: string;
+    زمان_تهیه?: string;
+    کالری?: string;
+  };
 }
 
 interface AddProductFormProps {
@@ -22,15 +27,34 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
     price: "",
     description: "",
     image: "",
+    details : {
+      مواد : "",
+      زمان_تهیه: "",
+      کالری: ""
+    }
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+
+  if (name.startsWith("details.")) {
+    const key = name.split(".")[1]; // مثل "مواد"
+    setForm((prev) => ({
+      ...prev,
+      details: {
+        ...prev.details,
+        [key]: value,
+      },
+    }));
+  } else {
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
+};
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,7 +137,7 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
     <div className="flex-1 w-full md:w-[120px]">
       <label className="block mb-1 font-medium">قیمت (تومان)</label>
       <input
-        type="number"
+        type="text"
         name="price"
         value={form.price}
         onChange={handleChange}
@@ -144,6 +168,34 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
         className="w-full border rounded p-2 focus:ring-2 focus:ring-green-400"
         required
       />
+    </div>
+
+    <div className="flex-1 w-full md:w-[200px]">
+      <label className="block mb-1 font-medium">مواد</label>
+     <input
+  type="text"
+  name="details.مواد"
+  value={form.details?.مواد||""}
+  onChange={handleChange}
+/>
+    </div>
+    <div className="flex-1 w-full md:w-[200px]">
+      <label className="block mb-1 font-medium">زمان تهیه</label>
+     <input
+  type="text"
+  name="details.زمان_تهیه"
+  value={form.details?.زمان_تهیه||""}
+  onChange={handleChange}
+/>
+    </div>
+    <div className="flex-1 w-full md:w-[200px]">
+      <label className="block mb-1 font-medium">کالری</label>
+      <input
+  type="text"
+  name="details.کالری"
+  value={form.details?.کالری||""}
+  onChange={handleChange}
+/>
     </div>
 
     <div className="w-full md:w-auto flex justify-end">
