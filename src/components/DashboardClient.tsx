@@ -13,10 +13,10 @@ interface DashboardClientProps {
   initialProducts: Product[];
 }
 
-// helper برای تضمین _id و details
+
 const safeProduct = (p: Product): Product => ({
   ...p,
-  _id: p._id!, // حتما string
+  _id: p._id!,
   details: p.details || { مواد: "", زمان_تهیه: "", کالری: "" },
 });
 
