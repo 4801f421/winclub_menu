@@ -13,10 +13,10 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
   const [form, setForm] = useState<Product>(product);
 
   useEffect(() => {
-    setForm(product); // هر بار product تغییر کرد، فرم را به‌روز کن
+    setForm(product); 
   }, [product]);
 
-  // generic handleChange: اجازه می‌دهد هر field از Product را تغییر دهیم
+
   const handleChange = <K extends keyof Product>(field: K, value: Product[K]) => {
     setForm({ ...form, [field]: value });
   };
@@ -94,7 +94,7 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             required
           />
 
-          {/* جزئیات */}
+          {}
           <input
             type="text"
             value={form.details?.مواد || ""}
