@@ -5,13 +5,13 @@ import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
-// 🟢 ویرایش محصول
+
 export async function PUT(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await context.params; // 👈 حتما await
+    const { id } = await context.params; 
     const data = await req.json();
 
     const client = await clientPromise;
@@ -34,13 +34,13 @@ export async function PUT(
   }
 }
 
-// 🔴 حذف محصول
+
 export async function DELETE(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await context.params; // 👈 باز هم await
+    const { id } = await context.params;
     const client = await clientPromise;
     const db = client.db("cafeDB");
 
