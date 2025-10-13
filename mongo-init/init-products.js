@@ -1,11 +1,13 @@
 db = db.getSiblingDB("cafeDB");
 
+// ساخت یوزر
 db.createUser({
   user: "appuser",
   pwd: "apppass",
   roles: [{ role: "readWrite", db: "cafeDB" }]
 });
 
+// وارد کردن محصولات
 db.products.insertMany([
   {
     id: 1,
@@ -13,11 +15,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۴۵,۰۰۰ / ۵۵,۰۰۰ تومان",
     description: "کامرشیال / اسپشیالیتی",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "دانه قهوه تازه آسیاب شده، آب داغ",
-      زمان_تهیه: "۲-۳ دقیقه",
-      کالری: "۵ کالری در هر شات"
+      text: "دانه قهوه تازه آسیاب شده، آب داغ"
     }
   },
   {
@@ -26,11 +26,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۵۰,۰۰۰ / ۶۰,۰۰۰ تومان",
     description: "اسپرسو رقیق شده با آب داغ",
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، آب داغ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۱۰ کالری"
+      text: "اسپرسو، آب داغ"
     }
   },
   {
@@ -39,11 +37,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۶۰,۰۰۰ / ۷۰,۰۰۰ تومان",
     description: "اسپرسو با خامه یا بستنی",
-    image: "https://images.unsplash.com/photo-1598218455098-69f4b501d5f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، خامه یا بستنی",
-      زمان_تهیه: "۳-۵ دقیقه",
-      کالری: "۱۲۰ کالری"
+      text: "اسپرسو، خامه یا بستنی"
     }
   },
   {
@@ -52,11 +48,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۷۰,۰۰۰ / ۸۰,۰۰۰ تومان",
     description: "اسپرسو روی تونیک خنک",
-    image: "https://images.unsplash.com/photo-1604908177617-47b9b34cba8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، آب تونیک، یخ",
-      زمان_تهیه: "۲-۳ دقیقه",
-      کالری: "۲۰ کالری"
+      text: "اسپرسو، آب تونیک، یخ"
     }
   },
   {
@@ -65,11 +59,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۵۵,۰۰۰ / ۶۵,۰۰۰ تومان",
     description: "اسپرسو با لیموی تازه",
-    image: "https://images.unsplash.com/photo-1561882468-9110e03e0f78?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، لیمو تازه",
-      زمان_تهیه: "۲-۳ دقیقه",
-      کالری: "۵ کالری"
+      text: "اسپرسو، لیمو تازه"
     }
   },
   {
@@ -78,11 +70,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۷۵,۰۰۰ / ۸۵,۰۰۰ تومان",
     description: "اسپرسو با آب پرتقال تازه",
-    image: "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، آب پرتقال طبیعی، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۴۰ کالری"
+      text: "اسپرسو، آب پرتقال طبیعی، یخ"
     }
   },
   {
@@ -91,11 +81,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۸۰,۰۰۰ / ۹۰,۰۰۰ تومان",
     description: "ترکیب اسپرسو با طعم فندق و شیر",
-    image: "https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، سیروپ فندق",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۹۰ کالری"
+      text: "اسپرسو، شیر، سیروپ فندق"
     }
   },
   {
@@ -104,11 +92,9 @@ db.products.insertMany([
     category: "espresso",
     price: "۸۵,۰۰۰ / ۹۵,۰۰۰ تومان",
     description: "اسپرسو با شیر نارگیل و طعم وانیل",
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر نارگیل، وانیل",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۸۵ کالری"
+      text: "اسپرسو، شیر نارگیل، وانیل"
     }
   },
     {
@@ -117,11 +103,9 @@ db.products.insertMany([
     category: "latte",
     price: "۷۵,۰۰۰ / ۸۵,۰۰۰ تومان",
     description: "اسپرسو با مقدار کمی شیر و کف شیر لطیف",
-    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۶۰ کالری"
+      text: "اسپرسو، شیر"
     }
   },
   {
@@ -130,11 +114,9 @@ db.products.insertMany([
     category: "latte",
     price: "۸۵,۰۰۰ / ۹۵,۰۰۰ تومان",
     description: "قهوه اسپرسو با شیر داغ و کف لطیف",
-    image: "https://images.unsplash.com/photo-1581592445520-4a5b5c407b5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۱۲۰ کالری"
+      text: "اسپرسو، شیر"
     }
   },
   {
@@ -143,11 +125,9 @@ db.products.insertMany([
     category: "latte",
     price: "۸۵,۰۰۰ / ۹۵,۰۰۰ تومان",
     description: "اسپرسو با شیر کف دار و طعم کلاسیک",
-    image: "https://images.unsplash.com/photo-1589307000076-8d1a1f4c5f2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، کف شیر",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۱۱۰ کالری"
+      text: "اسپرسو، شیر، کف شیر"
     }
   },
   {
@@ -156,11 +136,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته شکلاتی با اسپرسو و شیر",
-    image: "https://images.unsplash.com/photo-1570968915860-13f2d5a6a06f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، شکلات",
-      زمان_تهیه: "۵ دقیقه",
-      کالری: "۱۸۰ کالری"
+      text: "اسپرسو، شیر، شکلات"
     }
   },
   {
@@ -169,11 +147,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته خنک با پستو و یخ",
-    image: "https://images.unsplash.com/photo-1604908177520-299eb56c49c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، پستو، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۱۴۰ کالری"
+      text: "اسپرسو، شیر، پستو، یخ"
     }
   },
   {
@@ -182,11 +158,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته خنک با طعم انبه و یخ",
-    image: "https://images.unsplash.com/photo-1590080875800-1b84d8bb8f2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، مانگو، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۱۳۰ کالری"
+      text: "اسپرسو، شیر، مانگو، یخ"
     }
   },
   {
@@ -195,11 +169,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته خنک با طعم توت و یخ",
-    image: "https://images.unsplash.com/photo-1611078481033-dfb2b9f3e958?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، بری، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۱۳۰ کالری"
+      text: "اسپرسو، شیر، بری، یخ"
     }
   },
   {
@@ -208,11 +180,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته خنک با طعم ترامیسو و یخ",
-    image: "https://images.unsplash.com/photo-1625662099244-2e61c1a0b8a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، ترامیسو، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۱۴۰ کالری"
+      text: "اسپرسو، شیر، ترامیسو، یخ"
     }
   },
   {
@@ -221,11 +191,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۰,۰۰۰ / ۱۰۰,۰۰۰ تومان",
     description: "لته کوچک و دلپذیر با طعم ملایم",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر",
-      زمان_تهیه: "۳ دقیقه",
-      کالری: "۱۱۰ کالری"
+      text: "اسپرسو، شیر"
     }
   },
   {
@@ -234,11 +202,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته با شیر نیمه خامه‌ای و اسپرسو",
-    image: "https://images.unsplash.com/photo-1582719478250-7f2c6b9dfd42?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر نیمه خامه‌ای",
-      زمان_تهیه: "۴ دقیقه",
-      کالری: "۱۵۰ کالری"
+      text: "اسپرسو، شیر نیمه خامه‌ای"
     }
   },
   {
@@ -247,11 +213,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "اسپرسو با آب، خامه و سس شکلات",
-    image: "https://images.unsplash.com/photo-1617196031425-43c4b3d1c2d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، آب، خامه، سس شکلات",
-      زمان_تهیه: "۴ دقیقه",
-      کالری: "۱۷۰ کالری"
+      text: "اسپرسو، آب، خامه، سس شکلات"
     }
   },
   {
@@ -260,11 +224,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته با طعم نعناع و شکلات",
-    image: "https://images.unsplash.com/photo-1601924582975-0c8f5a92df5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، نعناع، شکلات",
-      زمان_تهیه: "۴ دقیقه",
-      کالری: "۱۵۰ کالری"
+      text: "اسپرسو، شیر، نعناع، شکلات"
     }
   },
   {
@@ -273,11 +235,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته با طعم ویژه و دلچسب",
-    image: "https://images.unsplash.com/photo-1580657014106-659f5d0fdd2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، طعم ویژه",
-      زمان_تهیه: "۴ دقیقه",
-      کالری: "۱۴۰ کالری"
+      text: "اسپرسو، شیر، طعم ویژه"
     }
   },
   {
@@ -286,11 +246,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته جادویی با طعم ملایم و شیرین",
-    image: "https://images.unsplash.com/photo-1600566752491-9bbf2e3f9a8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، طعم ملایم",
-      زمان_تهیه: "۴ دقیقه",
-      کالری: "۱۴۰ کالری"
+      text: "اسپرسو، شیر، طعم ملایم"
     }
   },
   {
@@ -299,11 +257,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته با طعم پستو و یک شات اسپرسو روی آن",
-    image: "https://images.unsplash.com/photo-1617691800050-7f9b0f3e5d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، پستو، بستنی وانیلی",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۲۲۰ کالری"
+      text: "اسپرسو، شیر، پستو، بستنی وانیلی"
     }
   },
   {
@@ -312,11 +268,9 @@ db.products.insertMany([
     category: "latte",
     price: "۹۵,۰۰۰ / ۱۰۵,۰۰۰ تومان",
     description: "لته با طعم مانگو و یک شات اسپرسو روی آن",
-    image: "https://images.unsplash.com/photo-1617691800080-1a2c0c1e6d2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "اسپرسو، شیر، مانگو، بستنی وانیلی",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۲۲۰ کالری"
+      text: "اسپرسو، شیر، مانگو، بستنی وانیلی"
     }
   },
   {
@@ -325,11 +279,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۷۰,۰۰۰ / ۸۰,۰۰۰ تومان",
     description: "قهوه سرد با عصاره طبیعی و طعم ملایم",
-    image: "https://images.unsplash.com/photo-1572451473031-6bdb091a028d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "آب، قهوه دم شده، یخ",
-      زمان_تهیه: "۵ دقیقه",
-      کالری: "۱۰ کالری"
+      text: "آب، قهوه دم شده، یخ"
     }
   },
   {
@@ -338,11 +290,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۷۰,۰۰۰ / ۸۰,۰۰۰ تومان",
     description: "قهوه دمی غلیظ و تازه با طعم کلاسیک",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "آب، قهوه تازه، یخ",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۱۰ کالری"
+      text: "آب، قهوه تازه، یخ"
     }
   },
   {
@@ -351,11 +301,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۷۵,۰۰۰ / ۸۵,۰۰۰ تومان",
     description: "قهوه ترک با غلظت بالا و عطر اصیل",
-    image: "https://images.unsplash.com/photo-1602629965404-c1d6f7c64f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "قهوه ترک، آب",
-      زمان_تهیه: "۵ دقیقه",
-      کالری: "۱۵ کالری"
+      text: "قهوه ترک، آب"
     }
   },
   {
@@ -364,11 +312,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۷۵,۰۰۰ / ۸۵,۰۰۰ تومان",
     description: "قهوه یونانی با طعم غنی و سنتی",
-    image: "https://images.unsplash.com/photo-1601981171211-2ecb8e27f5f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "قهوه یونانی، آب",
-      زمان_تهیه: "۵ دقیقه",
-      کالری: "۱۵ کالری"
+      text: "قهوه یونانی، آب"
     }
   },
   {
@@ -377,11 +323,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۸۰,۰۰۰ / ۹۰,۰۰۰ تومان",
     description: "نوشیدنی خنک و میوه‌ای با طعم خاص",
-    image: "https://images.unsplash.com/photo-1606312611533-62fdd1b2b1c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "آب، میوه، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۸۰ کالری"
+      text: "آب، میوه، یخ"
     }
   },
   {
@@ -390,11 +334,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۸۵,۰۰۰ / ۹۵,۰۰۰ تومان",
     description: "نوشیدنی گرمسیری و خنک با طعم میوه‌ای",
-    image: "https://images.unsplash.com/photo-1582719478250-7f2c6b9dfd42?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "آب، میوه‌های گرمسیری، یخ",
-      زمان_تهیه: "۴ دقیقه",
-      کالری: "۹۰ کالری"
+      text: "آب، میوه‌های گرمسیری، یخ"
     }
   },
   {
@@ -403,11 +345,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۸۵,۰۰۰ / ۹۵,۰۰۰ تومان",
     description: "نوشیدنی قرمز با ترکیب میوه‌های تازه و یخ",
-    image: "https://images.unsplash.com/photo-1617691800080-1a2c0c1e6d2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "آب، توت فرنگی، یخ",
-      زمان_تهیه: "۳-۴ دقیقه",
-      کالری: "۹۰ کالری"
+      text: "آب، توت فرنگی، یخ"
     }
   },
   {
@@ -416,11 +356,9 @@ db.products.insertMany([
     category: "mocktel",
     price: "۹۰,۰۰۰ / ۱۰۰,۰۰۰ تومان",
     description: "نوشیدنی قوی و تیره با طعم قهوه و شکلات",
-    image: "https://images.unsplash.com/photo-1601924582975-0c8f5a92df5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+    image: "/images/default.png",
     details: {
-      مواد: "قهوه، شکلات، آب",
-      زمان_تهیه: "۴-۵ دقیقه",
-      کالری: "۱۱۰ کالری"
+      text: "قهوه، شکلات، آب"
     }
   }
   
