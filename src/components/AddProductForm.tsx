@@ -9,9 +9,7 @@ interface Product {
   description: string;
   image: string;
   details?: {
-    مواد?: string;
-    زمان_تهیه?: string;
-    کالری?: string;
+    text?: string;
   };
 }
 
@@ -27,9 +25,7 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
     description: "",
     image: "",
     details: {
-      مواد: "",
-      زمان_تهیه: "",
-      کالری: "",
+      text: ""
     },
   });
 
@@ -87,9 +83,7 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
         description: "",
         image: "",
         details: {
-          مواد: "",
-          زمان_تهیه: "",
-          کالری: "",
+          text: ""
         },
       });
 
@@ -190,37 +184,16 @@ export default function AddProductForm({ onSuccess }: AddProductFormProps) {
           </div>
 
           <div className="flex-1 w-full md:w-[200px]">
-            <label className="block mb-1 font-medium">مواد</label>
+            <label className="block mb-1 font-medium">جزئیات</label>
             <input
               type="text"
-              name="details.مواد"
-              value={form.details?.مواد || ""}
+              name="details.text"
+              value={form.details?.text || ""}
               onChange={handleChange}
               className="w-full border rounded p-2 focus:ring-2 focus:ring-green-400"
             />
           </div>
-
-          <div className="flex-1 w-full md:w-[200px]">
-            <label className="block mb-1 font-medium">زمان تهیه</label>
-            <input
-              type="text"
-              name="details.زمان_تهیه"
-              value={form.details?.زمان_تهیه || ""}
-              onChange={handleChange}
-              className="w-full border rounded p-2 focus:ring-2 focus:ring-green-400"
-            />
-          </div>
-
-          <div className="flex-1 w-full md:w-[200px]">
-            <label className="block mb-1 font-medium">کالری</label>
-            <input
-              type="text"
-              name="details.کالری"
-              value={form.details?.کالری || ""}
-              onChange={handleChange}
-              className="w-full border rounded p-2 focus:ring-2 focus:ring-green-400"
-            />
-          </div>
+         
 
           <div className="w-full md:w-auto flex justify-end">
             <button
