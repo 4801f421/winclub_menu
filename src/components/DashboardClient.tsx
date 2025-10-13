@@ -17,7 +17,7 @@ interface DashboardClientProps {
 const safeProduct = (p: Product): Product => ({
   ...p,
   _id: p._id!,
-  details: p.details || { مواد: "", زمان_تهیه: "", کالری: "" },
+  details: p.details || { text: "" },
 });
 
 export default function DashboardClient({ initialProducts }: DashboardClientProps) {
@@ -117,7 +117,7 @@ export default function DashboardClient({ initialProducts }: DashboardClientProp
           product={safeProduct(editingProduct)}
           onClose={() => setEditingProduct(null)}
           onSave={(updated) => {
-
+       
             (async () => {
               await handleEdit(safeProduct(updated as Product));
             })();
