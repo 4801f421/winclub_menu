@@ -13,7 +13,7 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
   const [form, setForm] = useState<Product>(product);
 
   useEffect(() => {
-    setForm(product); 
+    setForm(product);
   }, [product]);
 
 
@@ -94,34 +94,17 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             required
           />
 
-          {}
+
           <input
             type="text"
-            value={form.details?.مواد || ""}
+            value={form.details?.text || ""}
             onChange={(e) =>
-              handleChange("details", { ...form.details, مواد: e.target.value })
+              handleChange("details", { ...form.details, text: e.target.value })
             }
-            placeholder="مواد"
+            placeholder="جزئیات"
             className="form-control"
           />
-          <input
-            type="text"
-            value={form.details?.زمان_تهیه || ""}
-            onChange={(e) =>
-              handleChange("details", { ...form.details, زمان_تهیه: e.target.value })
-            }
-            placeholder="زمان تهیه"
-            className="form-control"
-          />
-          <input
-            type="text"
-            value={form.details?.کالری || ""}
-            onChange={(e) =>
-              handleChange("details", { ...form.details, کالری: e.target.value })
-            }
-            placeholder="کالری"
-            className="form-control"
-          />
+         
 
           <div className="flex justify-end gap-2">
             <button
