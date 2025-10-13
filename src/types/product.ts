@@ -6,8 +6,6 @@ export interface Product {
   description: string;
   image: string;
   details?: {
-    مواد?: string;
-    زمان_تهیه?: string;
-    کالری?: string;
+    text?: string;
   };
 }
