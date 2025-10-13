@@ -18,7 +18,7 @@ export default async function DashboardPage() {
     price: p.price,
     description: p.description,
     image: p.image,
-    details: p.details || { مواد: "", زمان_تهیه: "", کالری: "" },
+    details: p.details || { text: ""},
   }));
 
   return <DashboardClient initialProducts={products} />;
