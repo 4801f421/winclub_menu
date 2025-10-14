@@ -29,7 +29,7 @@ const categoryNames: Record<string, string> = {
   Appetizer : "پیش غذا",
   Salad : "سالاد",
   Main : "غذای اصلی",
-  pizza : "پینزا",
+  pizza : "پیتزا",
   burger : "برگر",
   pasta : "پاستا",
   sandwich : "ساندویچ و پنینی"
