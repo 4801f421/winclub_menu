@@ -23,7 +23,7 @@ export default function Accordion({ details }: AccordionProps) {
         <div className={`accordion-content ${open ? "active" : ""}`}>
           {Object.entries(details).map(([key, value]) => (
             <p key={key}>
-              <strong>{key.replace("_", " ")}:</strong> {value}
+             {value}
             </p>
           ))}
         </div>
