@@ -37,7 +37,8 @@ export default function ProductList({ products, onEdit, onDelete }: Props) {
       pizza: "پیتزا",
       burger: "برگر",
       pasta: "پاستا",
-      sandwich: "ساندویچ و پنینی"
+      sandwich: "ساندویچ و پنینی",
+      breakfast : "صبحانه"
     };
     return categoryNames[categoryId] || categoryId;
   };
