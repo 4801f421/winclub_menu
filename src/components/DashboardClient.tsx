@@ -28,7 +28,7 @@ export default function DashboardClient({ initialProducts }: DashboardClientProp
   const categories = [
     "all", "espresso", "latte", "Brew", "chocolate", "Herbal", "IceTea",
     "Shake", "smoothie", "mocktel", "Bear", "Cake", "protein",
-    "Appetizer", "Salad", "Main", "pizza", "burger", "pasta", "sandwich"
+    "Appetizer", "Salad", "Main", "pizza", "burger", "pasta", "sandwich","breakfast"
   ];
 
   const getCategoryLabel = (cat: string) => {
@@ -52,7 +52,8 @@ export default function DashboardClient({ initialProducts }: DashboardClientProp
       pizza: "پیتزا",
       burger: "برگر",
       pasta: "پاستا",
-      sandwich: "ساندویچ و پنینی"
+      sandwich: "ساندویچ و پنینی",
+      breakfast : "صبحانه"
     };
     return labels[cat] || cat;
   };
