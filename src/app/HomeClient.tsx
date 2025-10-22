@@ -9,7 +9,7 @@ import { Product } from "@/types/product";
 
 const categoryList = [  "all", "espresso", "latte", "Brew", "chocolate", "Herbal", "IceTea"
   ,"Shake","smoothie","mocktel","Bear","Cake","protein",
-  "Appetizer","Salad","Main","pizza","burger","pasta","sandwich"
+  "Appetizer","Salad","Main","pizza","burger","pasta","sandwich","breakfast"
 ];
 
 const categoryNames: Record<string, string> = {
@@ -32,7 +32,8 @@ const categoryNames: Record<string, string> = {
   pizza : "پیتزا",
   burger : "برگر",
   pasta : "پاستا",
-  sandwich : "ساندویچ و پنینی"
+  sandwich : "ساندویچ و پنینی",
+  breakfast : "صبحانه"
 };
 
 
