@@ -19,7 +19,7 @@ export default function CategoriesFilter({ products }: { products: Product[] }) 
   const categories = [
   "all", "espresso", "latte", "Brew", "chocolate", "Herbal", "IceTea"
   ,"Shake","smoothie","mocktel","Bear","Cake","protein",
-  "Appetizer","Salad","Main","pizza","burger","pasta","sandwich"
+  "Appetizer","Salad","Main","pizza","burger","pasta","sandwich","breakfast"
   ];
 
   const categoryLabels: Record<string, string> = {
@@ -42,7 +42,8 @@ export default function CategoriesFilter({ products }: { products: Product[] }) 
   pizza : "پیتزا",
   burger : "برگر",
   pasta : "پاستا",
-  sandwich : "ساندویچ و پنینی"
+  sandwich : "ساندویچ و پنینی",
+  breakfast : "صبحانه"
   };
 
   const filtered =
