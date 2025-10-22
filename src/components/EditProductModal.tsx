@@ -65,6 +65,7 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             <option value="burger">برگر</option>
             <option value="pasta">پاستا</option>
             <option value="sandwich">ساندویچ و پنینی</option>
+            <option value="breakfast">صبحانه</option>
           </select>
 
           <input
