@@ -68,13 +68,13 @@ jobs:
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
             # Pull the latest version of the images from the registry
-            docker-compose pull
+            docker compose pull
 
             # Stop and remove old containers
-            docker-compose down
+            docker compose down
 
             # Start services with the new image and .env file
-            docker-compose up -d
+            docker compose up -d
 
             # Clean up unused Docker images
             docker system prune -af
