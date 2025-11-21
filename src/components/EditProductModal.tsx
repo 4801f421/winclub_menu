@@ -55,7 +55,7 @@ export default function EditProductModal({ product, onClose, onSave }: EditProdu
             <option value="Shake">شیک</option>
             <option value="smoothie">اسموتی بار</option>
             <option value="mocktel">موکتل</option>
-            <option value="Bear">Beer</option>
+            <option value="Bear">آبجو</option>
             <option value="Cake">کیک و دسر</option>
             <option value="protein">پروتئین بار</option>
             <option value="Appetizer">پیش غذا</option>
