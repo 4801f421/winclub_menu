@@ -33,7 +33,7 @@ export default function CategoriesFilter({ products }: { products: Product[] }) 
   Shake : "شیک",
   smoothie : "اسموتی بار",
   mocktel : "موکتل",
-  Bear : "Beer",
+  Bear : "آبجو",
   Cake : "کیک و دسر", 
   protein : "پروتئین بار",
   Appetizer : "پیش غذا",
