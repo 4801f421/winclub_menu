@@ -23,7 +23,7 @@ const categoryNames: Record<string, string> = {
   Shake : "شیک",
   smoothie : "اسموتی بار",
   mocktel : "موکتل",
-  Bear : "Beer",
+  Bear : "آبجو",
   Cake : "کیک و دسر", 
   protein : "پروتئین بار",
   Appetizer : "پیش غذا",
