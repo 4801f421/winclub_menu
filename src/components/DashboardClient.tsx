@@ -43,7 +43,7 @@ export default function DashboardClient({ initialProducts }: DashboardClientProp
       Shake: "شیک",
       smoothie: "اسموتی بار",
       mocktel: "موکتل",
-      Bear: "Beer",
+      Bear: "آبجو",
       Cake: "کیک و دسر",
       protein: "پروتئین بار",
       Appetizer: "پیش غذا",
