@@ -13,7 +13,16 @@ export async function GET() {
     const client = await clientPromise;
     const db = client.db("cafeDB");
 
-    const products = await db.collection("products").find({}).toArray();
+    const products = await db.collection("products").find({}, { 
+    projection: { 
+      _id: 1, 
+      name: 1, 
+      category: 1, 
+      price: 1, 
+      image: 1, 
+      description: 1 
+    } 
+  }).toArray();
 
     return NextResponse.json(products, { status: 200 });
   } catch (error) {

@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 import clientPromise from "@/lib/mongodb";
 import { Product } from "@/types/product";
@@ -8,7 +8,8 @@ async function getProducts(): Promise<Product[]> {
   const client = await clientPromise;
   const db = client.db("cafeDB");
 
-  const productsRaw = await db.collection<Product>("products").find({}).toArray();
+  const productsRaw = await db.collection<Product>("products").find({},
+     { projection: { _id: 1, name: 1, category: 1, price: 1, description: 1, image: 1, details: 1 } }).toArray();
 
   return productsRaw.map((p) => ({
     ...p,
