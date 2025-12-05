@@ -1,5 +1,5 @@
 export const dynamic = "force-static"; 
-export const revalidate = 10; 
+export const revalidate = 3600; 
 
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
