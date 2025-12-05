@@ -14,7 +14,9 @@ COPY . .
 
 # Provide a dummy MONGODB_URI at build time to allow Next.js build to succeed.
 # The real URI will be provided at runtime via the .env file on the server.
-ENV MONGODB_URI="mongodb://dummy:dummy@dummy/dummy"
+ARG MONGODB_URI="mongodb://root:examplepass@mongo:27017/cafeDB?authSource=admin"
+ENV MONGODB_URI=${MONGODB_URI}
+
 
 RUN npm run build
 
